@@ -1,0 +1,9 @@
+{
+  "name": "node-server",
+  "description": "A more advanced calculator microservice",
+  "dependencies": {
+    "express": "*"
+  },
+  "author": "Tim Butler",
+  "license": "MIT"
+}
