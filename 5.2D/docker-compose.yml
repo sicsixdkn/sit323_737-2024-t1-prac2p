@@ -1,0 +1,6 @@
+version: '3'
+services:
+  app:
+    image: australia-southeast1-docker.pkg.dev/sit323-24t1-butler-d014e9d/docker-repository/calculator-service
+    ports:
+      - "3000:3000"
