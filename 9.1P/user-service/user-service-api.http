@@ -1,0 +1,53 @@
+@url = http://localhost:80/api
+@test_email = testUser123@email.com
+@test_password = testPassword123
+
+### Register new user
+POST {{url}}/users/register
+Content-Type: application/json
+
+{
+  "email": "{{test_email}}",
+  "password": "{{test_password}}"
+}
+
+> {%
+    client.global.set("test_user_id", response.body.user._id);
+%}
+
+### Login existing user
+POST {{url}}/users/login
+Content-Type: application/json
+
+{
+  "email": "{{test_email}}",
+  "password": "{{test_password}}"
+}
+
+> {%
+    client.global.set("test_user_id", response.body.user._id);
+%}
+
+### Login admin user
+POST {{url}}/users/login
+Content-Type: application/json
+
+{
+  "email": "{{admin_email}}",
+ "password": "{{admin_password}}"
+}
+
+> {%
+    client.global.set("admin_token", response.body.token);
+%}
+
+### Delete test user (as admin)
+DELETE {{url}}/users/{{test_user_id}}
+Content-Type: application/json
+Authorization: Bearer {{admin_token}}
+
+> {%
+    client.test("Status code is 200", function () {
+        client.assert(response.status === 200);
+    });
+%}
