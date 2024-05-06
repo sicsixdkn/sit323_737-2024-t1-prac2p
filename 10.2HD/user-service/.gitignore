@@ -1,0 +1,5 @@
+.env
+*.env.json
+dist
+jwt-secret-base64.txt
+jwt-secret.txt

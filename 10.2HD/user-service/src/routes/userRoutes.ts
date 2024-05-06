@@ -15,7 +15,7 @@ const generateToken = (id: string) => {
     return jwt.sign({id}, process.env.JWT_SECRET!, {expiresIn: '1h'});
 };
 
-// User registration
+// POST /api/users/register
 router.post('/register', async (req, res) => {
     // Get the email and password from the request body
     const {email, password} = req.body;
@@ -44,7 +44,7 @@ router.post('/register', async (req, res) => {
     return res.status(201).json({token, user});
 });
 
-// User login
+// POST /api/users/login
 router.post('/login', async (req, res) => {
     // Get the email and password from the request body
     const {email, password} = req.body;
@@ -64,7 +64,7 @@ router.post('/login', async (req, res) => {
     return res.json({token, user});
 });
 
-// User deletion
+// DELETE /api/users/:id
 router.delete('/:id', authenticateUser, isAdmin, async (req, res) => {
     // Find the user by ID and delete it
     const user = await User.findByIdAndDelete(req.params.id);
@@ -78,11 +78,10 @@ router.delete('/:id', authenticateUser, isAdmin, async (req, res) => {
     return res.json({message: 'User removed'});
 });
 
-// Token validation
+// GET /api/users/validate
 router.get('/validate', authenticateUser, async (req, res) => {
-    // Return the user
+    // Return the user if the token is valid
     return res.json({user: req.user});
 });
-
 
 export default router;

@@ -1,4 +1,4 @@
-@url = http://localhost:3000/api
+@url = http://localhost/api
 @test_email = testUser123@email.com
 @test_password = testPassword123
 
@@ -34,7 +34,7 @@ Content-Type: application/json
 
 {
   "email": "{{admin_email}}",
-  "password": "{{admin_password}}"
+ "password": "{{admin_password}}"
 }
 
 > {%
@@ -51,8 +51,3 @@ Authorization: Bearer {{admin_token}}
         client.assert(response.status === 200);
     });
 %}
-
-### Test token validity
-GET {{url}}/users/validate
-Content-Type: application/json
-Authorization: Bearer {{admin_token}}

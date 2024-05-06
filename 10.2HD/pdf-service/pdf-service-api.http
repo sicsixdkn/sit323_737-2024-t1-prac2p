@@ -1,0 +1,38 @@
+@users_url = http://localhost/api
+@url = http://localhost/api
+
+### Login admin user
+POST {{users_url}}/users/login
+Content-Type: application/json
+
+{
+  "email": "{{admin_email}}",
+ "password": "{{admin_password}}"
+}
+
+> {%
+    client.global.set("admin_token", response.body.token);
+%}
+
+### Upload PDFs
+POST {{url}}/pdf
+Authorization: Bearer {{admin_token}}
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="pdfs"; filename="pdf1.pdf"
+Content-Type: application/pdf
+
+< C:\pdf1.pdf
+--boundary
+Content-Disposition: form-data; name="pdfs"; filename="pdf2.pdf"
+Content-Type: application/pdf
+
+< C:\pdf2.pdf
+--boundary--
+
+### Download PDF
+GET {{url}}/pdf?filename=merged-46e7e1cce074675ca02b.pdf
+Authorization: Bearer {{admin_token}}
+
+

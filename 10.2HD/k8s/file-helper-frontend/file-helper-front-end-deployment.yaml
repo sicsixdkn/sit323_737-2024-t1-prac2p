@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: file-helper-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: file-helper-frontend
+  template:
+    metadata:
+      labels:
+        app: file-helper-frontend
+    spec:
+      containers:
+        - name: file-helper-frontend
+          image: sicsixdkn/file-helper-frontend
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html/config
+              name: config-files
+      volumes:
+        - configMap:
+            name: uris
+            defaultMode: 420
+            optional: true
+          name: config-files

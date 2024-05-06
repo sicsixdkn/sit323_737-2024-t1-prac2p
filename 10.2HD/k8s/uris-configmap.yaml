@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: uris
+data:
+  MONGO_URI: "mongodb:27017/file-helper-cloud"
+  appConfig.js: |
+    window.appConfig = {
+        USER_SERVICE_API_URI:       "http://localhost/api",
+        PDF_SERVICE_API_URI:        "http://localhost/api",
+        PDF_SERVICE_SOCKET_IO_URI:  "http://localhost",
+        PDF_SERVICE_SOCKET_IO_PATH: "/api/pdf/socket.io"
+    };
