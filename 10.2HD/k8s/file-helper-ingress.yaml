@@ -2,6 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: file-helper-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "file-helper-static-ip"
 spec:
   rules:
     - http:

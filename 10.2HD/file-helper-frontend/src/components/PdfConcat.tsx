@@ -162,7 +162,7 @@ function PdfConcat() {
                     </>
                 ) :
                 (
-                    <Box display="flex" flexDirection="column" alignItems="center">
+                    <Box display="flex" flexDirection="column" alignItems="center" paddingTop={6}>
 
                         <label htmlFor="fileInput" style={{cursor: "pointer", margin: 10}}>
                             <Button variant="outlined" component="span" sx={{width: 200}}>
@@ -194,7 +194,7 @@ function PdfConcat() {
                                         style={{
                                             padding: 4,
                                             width: 250,
-                                            minHeight: 600
+                                            minHeight: 450
                                         }}
                                     >
                                         {pdfFiles.map((pdf, index) => (

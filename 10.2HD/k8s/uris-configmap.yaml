@@ -6,8 +6,8 @@ data:
   MONGO_URI: "mongodb:27017/file-helper-cloud"
   appConfig.js: |
     window.appConfig = {
-        USER_SERVICE_API_URI:       "http://34.36.142.10/api",
-        PDF_SERVICE_API_URI:        "http://34.36.142.10/api",
-        PDF_SERVICE_SOCKET_IO_URI:  "http://34.36.142.10/",
+        USER_SERVICE_API_URI:       "http://34.128.139.44/api",
+        PDF_SERVICE_API_URI:        "http://34.128.139.44/api",
+        PDF_SERVICE_SOCKET_IO_URI:  "http://34.128.139.44/",
         PDF_SERVICE_SOCKET_IO_PATH: "/api/pdf/socket.io"
     };
