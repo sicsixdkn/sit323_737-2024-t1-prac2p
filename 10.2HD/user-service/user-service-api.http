@@ -1,14 +1,14 @@
-@url = http://localhost/api
+@url = http://34.128.139.44/api
 @test_email = testUser123@email.com
 @test_password = testPassword123
 
 ### Register new user
-POST {{url}}/users/register
+POST  {{url}}/users/register
 Content-Type: application/json
 
 {
-  "email": "{{test_email}}",
-  "password": "{{test_password}}"
+  "email": "{{admin_email}}",
+  "password": "{{admin_password}}"
 }
 
 > {%

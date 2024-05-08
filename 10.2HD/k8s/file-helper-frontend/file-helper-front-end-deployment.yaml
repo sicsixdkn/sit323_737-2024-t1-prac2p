@@ -14,8 +14,7 @@ spec:
     spec:
       containers:
         - name: file-helper-frontend
-          image: sicsixdkn/file-helper-frontend
-          imagePullPolicy: IfNotPresent
+          image: australia-southeast1-docker.pkg.dev/sit323-24t1-butler-d014e9d/docker-repository/file-helper-frontend:latest
           ports:
             - containerPort: 80
           volumeMounts:

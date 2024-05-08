@@ -33,6 +33,10 @@ app.use(express.json());
 
 // Endpoints
 app.use("/api/pdf", pdfRoutes(io));
+// Added for health check
+app.get("/", (req, res) => {
+    res.status(200).send("PDF Service is running");
+});
 
 // Start the server
 server.listen(port, async () => {

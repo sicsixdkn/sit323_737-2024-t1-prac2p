@@ -14,10 +14,9 @@ spec:
     spec:
       containers:
         - name: user-service
-          image: sicsixdkn/user-service
-          imagePullPolicy: IfNotPresent
+          image: australia-southeast1-docker.pkg.dev/sit323-24t1-butler-d014e9d/docker-repository/user-service:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 80
           env:
             - name: MONGO_URI
               valueFrom:

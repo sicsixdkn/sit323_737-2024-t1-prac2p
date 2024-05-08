@@ -13,14 +13,14 @@ spec:
   hostPath:
     path: "/var/lib/docker/volumes/mongodb-pv/_dbdata"
     type: DirectoryOrCreate
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-                - docker-desktop
+#  nodeAffinity:
+#    required:
+#      nodeSelectorTerms:
+#        - matchExpressions:
+#            - key: kubernetes.io/hostname
+#              operator: In
+#              values:
+#                - docker-desktop
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

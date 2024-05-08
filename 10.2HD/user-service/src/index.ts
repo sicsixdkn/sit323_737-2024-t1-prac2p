@@ -19,6 +19,10 @@ app.use(express.json());
 
 // Endpoints
 app.use("/api/users", userRoutes);
+// Added for health check
+app.get("/", (req, res) => {
+    res.status(200).send("User Service is running");
+});
 
 // Start the server
 app.listen(port, async () => {
